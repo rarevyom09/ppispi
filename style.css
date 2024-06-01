@@ -1,0 +1,121 @@
+
+@media only screen and (max-width: 3840px) {
+
+#koka{
+  border-style: none ;
+  font-size: x-large;
+  color:black;
+}
+.logo img {
+        width: 90px;
+        height: 90px;
+}
+.navinfo{
+    background-color: black;
+    font-size: xx-large;
+    text-align: center;
+    padding-bottom: 1px;
+}
+.navhr{
+    color: #E6DDC4;
+}
+.navt{
+  vertical-align: middle;
+    color: #ffffff;
+}
+.navsub{
+    font-size: 20px;
+    vertical-align: middle;
+
+    color: #ffffff;
+}
+table{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto; 
+    color: white;
+    font-weight: 400px;
+    border-color: orange;
+    align-content: center;
+}
+.sub{
+    text-align: center;
+    font-size: small;
+}
+td{
+  align-items: center;
+    text-align: center;
+  position: relative;
+    margin-left: auto;
+    margin-right: auto; 
+    color: white;
+  border-style: inset;
+    border-color: orange;
+    align-content: center;
+}
+/* tr:hover {background-color: #3b545e;} */
+.main{
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+th{
+  color:white;
+  border-style: inset;
+  border-color: orange;
+}
+.final{
+  border-style: none;
+  margin-top: 5px;
+}
+.but{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   border-style: solid;
+    border-color: orange;
+    border-radius: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+  margin-top: 5px;
+    font-weight: 500;
+    background-color: black;
+    color: white;
+}
+#s1,#s2,#s3,#s4,#s5,#s6,#s7,#s8{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-style: solid;
+    border-color: orange;
+    border-radius: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
+    font-weight: 500;
+    background-color: black;
+    color: white;
+}
+.footer{
+    text-align: center;
+    font-size: small;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: black;
+    color: #ffffff;
+}
+.footercopy{
+    text-align: center;
+    font-size: small;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: black;
+}
+.footermail{
+    color: orange;
+    font-size: medium;
+    text-decoration: underline dotted;
+}
+#btp{
+  background-color: red;
+}
+
+  
+}

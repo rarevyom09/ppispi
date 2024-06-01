@@ -1,0 +1,231 @@
+
+<!--
+    DEVELOPED BY-Vyom,Parth,Heet
+THIS IS SPI CALCULATOR FOR 4th SEM EC NIRMA UNI.
+SOLELY FOR PROJECT AND LEARNING PURPOSE 
+-->
+<!-- /*
+FINAL 
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPI CALCULATOR</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-gray-100">
+    <nav class="bg-gray-900 p-4">
+        <p class="text-white font-bold text-xl">SPI CALCULATOR</p>
+        <hr class="border-white">
+        <p class="text-white font-semibold">Branch-Electronics & Communication Engg.</p>
+        <p class="text-white">Sem-05</p>
+    </nav>
+    <div class="container mx-auto p-4">
+        <table class="table-auto border border-collapse w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">SUBJECTS</th>
+                    <th class="px-4 py-2">CREDITS</th>
+                    <th class="px-4 py-2">GRADE OBTAINED</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2">DSP</td>
+                    <td class="px-4 py-2">4 (Theory)</td>
+                    <td class="px-4 py-2">
+                        <select class="p-2 border rounded-md" id="s1">
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2">DCOM</td>
+                    <td class="px-4 py-2">4 (Theory)</td>
+                    <td class="px-4 py-2">
+                        <select class="p-2 border rounded-md" id="s2">
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2">VLSI</td>
+                    <td class="px-4 py-2">4 (Theory)</td>
+                    <td class="px-4 py-2">
+                        <select class="p-2 border rounded-md" id="s3">
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2">SCIRPTING LANG</td>
+                    <td class="px-4 py-2">4 (Theory)</td>
+                    <td class="px-4 py-2">
+                        <select class="p-2 border rounded-md" id="s4">
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2">MEDIA CUL & SOC</td>
+                    <td class="px-4 py-2">3 (Theory)</td>
+                    <td class="px-4 py-2">
+                        <select class="p-2 border rounded-md" id="s5">
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2">CLOUD COMP</td>
+                    <td class="px-4 py-2">3 (Theory)</td>
+                    <td class="px-4 py-2">
+                        <select class="p-2 border rounded-md" id="s6">
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2"><button onclick="reset()"
+                            class="p-2 border rounded-md bg-red-500 text-white hover:bg-red-600" id="but"> Reset</button></td>
+                    <td class="final">
+                        <button onclick="calc()"
+                            class="p-2 border rounded-md bg-green-500 text-white hover:bg-green-600" id="but"> Calculate</button>
+                    </td>
+                    <td class="ans" id="a2"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ppi container mx-auto p-4">
+        <input class="w-full p-2 border rounded-md" type="text">
+    </div>
+    <p class="footer text-center mt-4">
+        In case of any query/feedback, mail us: <a href="mailto:theaspirants1@gmail.com"
+            class="footermail">Aspirants</a>
+    </p>
+    <p class="footer text-center">&copy; 2023 The Aspirants</p>
+    <hr class="my-4">
+</body>
+
+<script>
+  function reset() {
+    location.reload();
+  }
+  function calc() {
+    var t = 0;
+
+    //dsp
+    var grd = document.getElementById('s1').value;
+    if (grd == 'A+') t += 10 * 4;
+    if (grd == 'A') t += 9 * 4;
+    if (grd == 'B+') t += 8 * 4;
+    if (grd == 'B') t += 7 * 4;
+    if (grd == 'C+') t += 6 * 4;
+    if (grd == 'C') t += 5 * 4;
+
+
+    //dcom
+    var grd = document.getElementById('s2').value;
+    if (grd == 'A+') t += 10 * 4;
+    if (grd == 'A') t += 9 * 4;
+    if (grd == 'B+') t += 8 * 4;
+    if (grd == 'B') t += 7 * 4;
+    if (grd == 'C+') t += 6 * 4;
+    if (grd == 'C') t += 5 * 4;
+
+
+    //vlsi
+    var grd = document.getElementById('s3').value;
+    if (grd == 'A+') t += 10 * 4;
+    if (grd == 'A') t += 9 * 4;
+    if (grd == 'B+') t += 8 * 4;
+    if (grd == 'B') t += 7 * 4;
+    if (grd == 'C+') t += 6 * 4;
+    if (grd == 'C') t += 5 * 4;
+
+
+    //sl
+    var grd = document.getElementById('s4').value;
+    if (grd == 'A+') t += 10 * 4;
+    if (grd == 'A') t += 9 * 4;
+    if (grd == 'B+') t += 8 * 4;
+    if (grd == 'B') t += 7 * 4;
+    if (grd == 'C+') t += 6 * 4;
+    if (grd == 'C') t += 5 * 4;
+
+
+    //mcs
+    var grd = document.getElementById('s5').value;
+    if (grd == 'A+') t += 10 * 3;
+    if (grd == 'A') t += 9 * 3;
+    if (grd == 'B+') t += 8 * 3;
+    if (grd == 'B') t += 7 * 3;
+    if (grd == 'C+') t += 6 * 3;
+    if (grd == 'C') t += 5 * 3;
+
+
+    //cc
+    var grd = document.getElementById('s6').value;
+    if (grd == 'A+') t += 10 * 3;
+    if (grd == 'A') t += 9 * 3;
+    if (grd == 'B+') t += 8 * 3;
+    if (grd == 'B') t += 7 * 3;
+    if (grd == 'C+') t += 6 * 3;
+    if (grd == 'C') t += 5 * 3;
+
+    //ddlab
+    // var grd=document.getElementById('s7').value;
+    // if(grd=='A+') t+=10;
+    // if(grd=='A') t+=9;
+    // if(grd=='B+') t+=8;
+    // if(grd=='B') t+=7;
+    // if(grd=='C+') t+=6;
+    // if(grd=='C') t+=5;
+
+    var finalSpi=document.getElementById('a2').innerHTML = "SPI: " + (t / 22).toFixed(4);
+    // alert(finalSpi + " CONGRATULATIONS ");
+
+  }
+</script>
+<!-- <script src="4ec.js"></script> -->
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPI Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+
+<body class="bg-gray-900 text-white">
+  <nav class="bg-blue-600 p-4">
+    <div class="container mx-auto">
+      <p class="text-2xl font-bold">SPI Calculator</p>
+      <p class="text-lg font-semibold">Branch: Electronics & Communication Engg.</p>
+      <p class="text-lg">Semester: 06</p>
+    </div>
+  </nav>
+  <div class="container mx-auto mt-6 p-4 bg-gray-800 rounded-lg shadow-lg relative">
+    <table class="table-auto w-full text-center">
+      <thead class="bg-blue-600">
+        <tr>
+          <th class="px-4 py-2">Subjects</th>
+          <th class="px-4 py-2">Credits</th>
+          <th class="px-4 py-2">Grade Obtained</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="px-4 py-2">CA</td>
+          <td class="px-4 py-2">4 (Theory)</td>
+          <td class="px-4 py-2">
+            <select class="p-2 border rounded-md bg-gray-700" id="s1">
+              <option value="A+">A+</option>
+              <option value="A">A</option>
+              <option value="B+">B+</option>
+              <option value="B">B</option>
+              <option value="C+">C+</option>
+              <option value="C">C</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2">DEPT. ELECT II (EMB SYS / TVDC)</td>
+          <td class="px-4 py-2">4 (Theory)</td>
+          <td class="px-4 py-2">
+            <select class="p-2 border rounded-md bg-gray-700" id="s2">
+              <option value="A+">A+</option>
+              <option value="A">A</option>
+              <option value="B+">B+</option>
+              <option value="B">B</option>
+              <option value="C+">C+</option>
+              <option value="C">C</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2">DEPT. ELECT III (ESD/SAT COMM./ASIC)</td>
+          <td class="px-4 py-2">3 (Theory)</td>
+          <td class="px-4 py-2">
+            <select class="p-2 border rounded-md bg-gray-700" id="s3">
+              <option value="A+">A+</option>
+              <option value="A">A</option>
+              <option value="B+">B+</option>
+              <option value="B">B</option>
+              <option value="C+">C+</option>
+              <option value="C">C</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2">ML</td>
+          <td class="px-4 py-2">3 (Theory)</td>
+          <td class="px-4 py-2">
+            <select class="p-2 border rounded-md bg-gray-700" id="s4">
+              <option value="A+">A+</option>
+              <option value="A">A</option>
+              <option value="B+">B+</option>
+              <option value="B">B</option>
+              <option value="C+">C+</option>
+              <option value="C">C</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2">OPEN ELECT (Ex. OOPS)</td>
+          <td class="px-4 py-2">3 (Theory)</td>
+          <td class="px-4 py-2">
+            <select class="p-2 border rounded-md bg-gray-700" id="s5">
+              <option value="A+">A+</option>
+              <option value="A">A</option>
+              <option value="B+">B+</option>
+              <option value="B">B</option>
+              <option value="C+">C+</option>
+              <option value="C">C</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2">FAB IC</td>
+          <td class="px-4 py-2">3 (Theory)</td>
+          <td class="px-4 py-2">
+            <select class="p-2 border rounded-md bg-gray-700" id="s6">
+              <option value="A+">A+</option>
+              <option value="A">A</option>
+              <option value="B+">B+</option>
+              <option value="B">B</option>
+              <option value="C+">C+</option>
+              <option value="C">C</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2">
+            <button onclick="reset()" class="p-2 bg-red-500 rounded-md hover:bg-red-600">Reset</button>
+          </td>
+          <td colspan="2" class="px-4 py-2">
+            <button onclick="calc()" class="p-2 bg-green-500 rounded-md hover:bg-green-600">Calculate</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Popover -->
+    <div id="popover"
+      class="hidden absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-75">
+      <div class="bg-white text-black p-4 rounded-lg relative">
+        <p id="popoverMessage" class="text-lg font-bold"></p>
+        <p class="text-xs italics">You can download whole result by clicking "Download" tab.</p>
+        <button onclick="closePopover()"
+          class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Close</button>
+        <button onclick="shareResult()"
+          class="mt-4 px-4 py-2 bg-black text-white rounded-md hover:bg-blue-700 ml-2">Download</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center mt-6">
+    <p>In case of any query/feedback, mail us: <a href="mailto:theaspirants1@gmail.com"
+        class="text-blue-400 underline">Aspirants</a></p>
+    <p>&copy; 2023 The Aspirants</p>
+  </footer>
+
+  <script>
+    function reset() {
+      location.reload();
+    }
+
+    function calc() {
+      let t = 0;
+
+      // Helper function to get grade points
+      function getGradePoints(grade, credits) {
+        switch (grade) {
+          case 'A+': return 10 * credits;
+          case 'A': return 9 * credits;
+          case 'B+': return 8 * credits;
+          case 'B': return 7 * credits;
+          case 'C+': return 6 * credits;
+          case 'C': return 5 * credits;
+          default: return 0;
+        }
+      }
+
+      t += getGradePoints(document.getElementById('s1').value, 4);
+      t += getGradePoints(document.getElementById('s2').value, 4);
+      t += getGradePoints(document.getElementById('s3').value, 3);
+      t += getGradePoints(document.getElementById('s4').value, 3);
+      t += getGradePoints(document.getElementById('s5').value, 3);
+      t += getGradePoints(document.getElementById('s6').value, 3);
+
+      const finalSpi = (t / 20).toFixed(4);
+      document.getElementById('popoverMessage').innerText = `SPI: ${finalSpi}`;
+      document.getElementById('popover').classList.remove('hidden');
+
+      confetti({
+        particleCount: 900,
+        spread: 165
+      });
+    }
+
+    function closePopover() {
+      document.getElementById('popover').classList.add('hidden');
+    }
+
+    function shareResult() {
+      const subjects = [
+        { name: 'CA', grade: document.getElementById('s1').value },
+        { name: 'DEPT. ELECT II (EMB SYS / TVDC)', grade: document.getElementById('s2').value },
+        { name: 'DEPT. ELECT III (ESD/SAT COMM./ASIC)', grade: document.getElementById('s3').value },
+        { name: 'ML', grade: document.getElementById('s4').value },
+        { name: 'OPEN ELECT (Ex. OOPS)', grade: document.getElementById('s5').value },
+        { name: 'FAB IC', grade: document.getElementById('s6').value },
+      ];
+
+      const finalSpi = document.getElementById('popoverMessage').innerText;
+
+      const tempDiv = document.createElement('div');
+      tempDiv.style.color = 'black';
+      tempDiv.style.padding = '20px';
+      tempDiv.style.position='relative';
+      tempDiv.style.zIndex='1';
+      
+      // Create a table element
+      const table = document.createElement('table');
+      table.style.width = '100%';
+      table.style.borderCollapse = 'collapse';
+
+      // Add a header row
+      const headerRow = document.createElement('tr');
+      const headerCells = ['Subject', 'Grade'];
+      headerCells.forEach(cellText => {
+        const cell = document.createElement('th');
+        cell.textContent = cellText;
+        cell.style.border = '1px solid black';
+        cell.style.padding = '8px';
+        headerRow.appendChild(cell);
+      });
+      table.appendChild(headerRow);
+
+      // Add rows for each subject
+      subjects.forEach(subject => {
+        const row = document.createElement('tr');
+        const nameCell = document.createElement('td');
+        nameCell.textContent = subject.name;
+        nameCell.style.border = '1px solid black';
+        nameCell.style.padding = '8px';
+        row.appendChild(nameCell);
+
+        const gradeCell = document.createElement('td');
+        gradeCell.textContent = subject.grade;
+        gradeCell.style.border = '1px solid black';
+        gradeCell.style.padding = '8px';
+        row.appendChild(gradeCell);
+
+        table.appendChild(row);
+      });
+
+      // Add final SPI row
+      const finalSpiRow = document.createElement('tr');
+      const spiLabelCell = document.createElement('td');
+      spiLabelCell.textContent = 'Final SPI';
+      spiLabelCell.style.border = '1px solid black';
+      spiLabelCell.style.padding = '8px';
+      finalSpiRow.appendChild(spiLabelCell);
+
+      const spiValueCell = document.createElement('td');
+      spiValueCell.textContent = finalSpi;
+      spiValueCell.style.border = '1px solid black';
+      spiValueCell.style.padding = '8px';
+      finalSpiRow.appendChild(spiValueCell);
+
+      table.appendChild(finalSpiRow);
+
+      tempDiv.appendChild(table);
+
+      // Create a watermark image element
+      const watermarkImg = new Image();
+      watermarkImg.src = 'asp_v_om.png'; // Replace 'path_to_your_watermark_image' with the actual path to your watermark image
+      watermarkImg.style.position = 'absolute';
+      watermarkImg.style.top = '0';
+      watermarkImg.style.left = '0';
+      watermarkImg.style.opacity = '0.2'; // Adjust opacity as needed
+      watermarkImg.style.width = '100%';
+      watermarkImg.style.height = '100%';
+      watermarkImg.style.zIndex = '-1';
+      watermarkImg.style.pointerEvents = 'none'; // Make sure the watermark image doesn't interfere with user interactions
+      tempDiv.appendChild(watermarkImg);
+
+      document.body.appendChild(tempDiv);
+
+      html2canvas(tempDiv).then(canvas => {
+        canvas.toBlob(blob => {
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'res_sem6_aspirants.png';
+          a.click();
+        });
+      });
+
+      tempDiv.remove();
+    }
+
+
+  </script>
+</body>
+
+</html>
