@@ -133,6 +133,20 @@
             </select>
           </td>
         </tr>
+       <tr>
+          <td class="px-4 py-2">SUMMER INTERNSHIP</td>
+          <td class="px-4 py-2">1</td>
+          <td class="px-4 py-2">
+            <select class="p-2 border rounded-md bg-gray-700" id="s8">
+              <option value="A+">A+</option>
+              <option value="A">A</option>
+              <option value="B+">B+</option>
+              <option value="B">B</option>
+              <option value="C+">C+</option>
+              <option value="C">C</option>
+            </select>
+          </td>
+        </tr>
         <tr>
           <td class="px-4 py-2">
             <button onclick="reset()" class="p-2 bg-red-500 rounded-md hover:bg-red-600">Reset</button>
@@ -192,9 +206,10 @@
       t += getGradePoints(document.getElementById('s5').value, 3);
       t += getGradePoints(document.getElementById('s6').value, 3);
       t += getGradePoints(document.getElementById('s7').value, 2);
+     t += getGradePoints(document.getElementById('s8').value, 1);
 
 
-      const finalSpi = (t / 22).toFixed(4);
+      const finalSpi = (t / 23).toFixed(4);
       document.getElementById('popoverMessage').innerText = `SPI: ${finalSpi}`;
       document.getElementById('popover').classList.remove('hidden');
 
